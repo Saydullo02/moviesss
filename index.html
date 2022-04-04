@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Movies</title>
+</head>
+<body class="bg-success">
+    
+    <!-- header -->
+    <header>
+        <div class="container pt-3 mb-4">
+            <h1 class="h1 text-center">
+                Movies catalog
+            </h1>
+        </div>
+    </header>
+    <!-- Main -->
+    <main>
+        <section class="container">
+            <div class="row">
+                <div class=" col-md-4 left-side p-2">
+                    <div class="top-side mb-4">
+                        <form id="movies-form">
+                            <div class="mb-3 mt-3">
+                                <input id="search-input" type="text" class="form-control" id="email" placeholder="Enter movie name" autocomplete="off" name="movie-name">
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" class="form-control" id="rating" min="" max="10" step="0.1"  placeholder="Enter movie rating" name="rating-movie">
+                            </div>
+                            
+                            <select id="form-select" class="form-select mb-3 p-2" aria-label="Default select example">
+                                <option selected value="all">All</option>
+                            </select>
+                            
+                            <select id="form-sort" class="form-select mb-3 p-2" aria-label="Default select example">
+                                <option value="rating-high">Default</option>
+                                <option value="rating-high">Rating (high to     low)</option>
+                                <option value="rating-low">Rating (low to high)</option>
+                            </select>
+                            
+                            <button id="form-btn" type="submit" class="btn btn-primary w-100">Search</button>
+                            
+                        </form>
+                        <h2 class="h3 mt-4 mb-4 text-white">
+                            Bookmarket movies
+                        </h2>
+                        
+                        <ul id="bookmark_list" class="list-group pb-5">
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class=" col-md-8 right-side p-4">
+                    
+                    <div class="alert alert-info movie-alert col-md-11 bg-info text-black">
+                        Internet is not working
+                    </div>
+                    
+                    <div id="box" class="box d-flex flex-wrap">
+                        
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-center mt-4">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-outline-primary">1</button>
+                        <button type="button" class="btn btn-outline-primary">2</button>
+                        <button type="button" class="btn btn-outline-primary">3</button>
+                        <button type="button" class="btn btn-outline-primary">4</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <template id="template">
+        <div class="card me-3 mb-3" style="width: 22rem;">
+            <img src="https://i.ytimg.com/vi/4hZi5QaMBFc/mqdefault.jpg" class="card-img-top" style="height: 220px;">
+            <div class="card-body">
+                <h5 class="card-title fw-bolder text-danger"></h5>
+                <div class="d-flex">
+                    <p class="ms-2 fw-bolder">Categories: <span class="card-categories"></span></p>
+                </div>
+                <div class="d-flex">
+                    <p class="ms-2 fw-bolder">Released: <span class="card-year"></span></p>
+                </div>
+                <div class="d-flex">
+                    <p class="ms-2 fw-bolder">Rate: <span class="card-rate"></span></p>
+                </div>
+                <div class="pb-3">
+                    <a class="btn btn-outline-primary btn-sm me-3 card-link" href="">Watch trailer</a>
+                    <button type="button" class="btn btn-outline-info btn-sm me-3 modal-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        More info
+                    </button>
+                    <button class="btn btn-outline-success btn-sm bookmark-btn">Bookmarks</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="bookmarked">
+        <li class="list-group-item bg-info mb-4 w-75">
+            <img class="movie-images w-100" src="" alt="">
+            <p class="fw-bold movie-heading text-black">Avegers: Infinity War</p>
+            <button type="button" class="btn btn-danger btn-remove">Remove</button>
+        </li>
+    </template>
+    
+    
+    <!-- Modal -->
+    <div class="modal fade movie-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> 
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title movie-heading" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body movie-text-modal bg-info">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum fugit aut, natus debitis sit sunt tempora. Quam, voluptate autem! Error, illum nobis. Labore cumque minima fugiat est, necessitatibus quaerat maiores? Iusto excepturi aliquam error neque repellendus! Sed, a, cum cumque at praesentium fuga iste rem autem quam voluptatem magnam perferendis excepturi nisi. Deleniti architecto sapiente labore laborum? Delectus expedita eum voluptatum sequi aut nesciunt voluptas, quod neque, saepe unde aspernatur blanditiis temporibus ullam dolor nisi reprehenderit recusandae ducimus eius nihil eveniet tempora et quos eaque libero. Labore itaque provident natus atque? Ducimus inventore sint adipisci beatae cum unde vero necessitatibus?
+                </div>
+                
+                <div class="modal-img">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary bg-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/movies.js"></script>
+    <script src="./js/app.js"></script>
+    
+</body>
+</html>
