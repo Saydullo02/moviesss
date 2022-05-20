@@ -204,7 +204,6 @@ function renderBookmark(array, box) {
 renderBookmark(newArrayBookmark, elBookmarkList);
 
 
-// 
 elBookmarkList.addEventListener("click", function (event) {
     
     let removeBookmark = event.target.dataset.btnId;
